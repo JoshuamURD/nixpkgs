@@ -30,6 +30,7 @@
     # CLI tools
     zoxide
     yazi
+    btop
     
     # GUI Applications
     firefox
