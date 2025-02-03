@@ -96,6 +96,9 @@
   fonts = {
     packages = with pkgs; [
       (nerdfonts.override { fonts = [ "Iosevka" ]; })
+      font-awesome
+      material-design-icons
+      material-icons
     ];
   };
 

@@ -58,10 +58,13 @@
         module-margin-left = 1;
         module-margin-right = 1;
 
-        font-0 = "JetBrainsMono Nerd Font:style=Regular:size=11;3";
-        font-1 = "JetBrainsMono Nerd Font:style=Bold:size=11;3";
-        font-2 = "JetBrainsMono Nerd Font:size=14;4";
-        font-3 = "Material Icons:style=Regular:size=13;4";
+        font-0 = "Iosevka:style=Regular:size=11;2";
+        font-1 = "Iosevka:style=Bold:size=11;2";
+        font-2 = "Font Awesome 6 Free:style=Solid:size=11;2";
+        font-3 = "Font Awesome 6 Free:style=Regular:size=11;2";
+        font-4 = "Font Awesome 6 Brands:style=Regular:size=11;2";
+        font-5 = "Material Icons:style=Regular:size=13;3";
+        font-6 = "Material Design Icons:size=13;3";
 
         modules-left = "i3 xwindow";
         modules-center = "date";
