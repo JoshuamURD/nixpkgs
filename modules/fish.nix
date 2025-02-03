@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     fish
     fzf
+    neofetch
   ];
 
   programs.fish = {
