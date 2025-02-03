@@ -53,6 +53,7 @@
     XDG_CONFIG_HOME = "${config.home.homeDirectory}/.config";
     XDG_CACHE_HOME = "${config.home.homeDirectory}/.cache";
     XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";
+    GOPATH = "${config.home.homeDirectory}/go";
   };
 
   # Basic program enables - detailed configs are in modules/
