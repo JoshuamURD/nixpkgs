@@ -57,6 +57,13 @@
   services = {
     printing.enable = true;
     gnome.gnome-keyring.enable = true;
+    blueman.enable = true;
+  };
+
+  # Hardware configuration
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
   };
 
   # Default shell
@@ -100,6 +107,7 @@
       material-design-icons
       material-icons
     ];
+    enableDefaultPackages = true;
   };
 
   nixpkgs.config.allowUnfree = true;
