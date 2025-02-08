@@ -72,6 +72,14 @@
       set -gx EDITOR nvim
       set -gx VISUAL nvim
       
+      # Set GOPATH and add Go-related paths
+      set -gx GOPATH $HOME/go
+      set -gx PATH $GOPATH/bin $PATH   # Changed order to prioritize Go binaries
+
+      # Debug info - uncomment to check paths
+      echo "GOPATH: $GOPATH"
+      echo "PATH: $PATH"
+
       # Vi mode
       fish_vi_key_bindings
       
