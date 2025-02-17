@@ -31,6 +31,7 @@
     zoxide
     yazi
     btop
+    killall
     
     # GUI Applications
     firefox
@@ -62,6 +63,4 @@
     git.enable = true;
   };
 
-  # Keep home.file for any future dotfile management
-  home.file = {};
 }
