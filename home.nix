@@ -19,6 +19,7 @@
     
     # Development
     nodejs
+    bun
     rustc
     cargo
     gcc
