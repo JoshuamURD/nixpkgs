@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./modules/hyprland.nix ];  # This imports all modules through default.nix
+  imports = [ ./modules/default.nix ];  # This imports all modules through default.nix
 
   home = {
     username = "joshuam";
@@ -36,7 +36,7 @@
     
     # GUI Applications
     firefox
-    rofi
+    rofi-wayland
     
     # Media and Sound
     playerctl
@@ -49,10 +49,13 @@
     
     # Wayland specific
     waybar
-    rofi-wayland
     wl-clipboard
     grim
     slurp
+
+    # Add these if not present
+    hyprland
+    xdg-desktop-portal-hyprland
   ];
 
   home.sessionVariables = {
@@ -78,4 +81,7 @@
     git.enable = true;
   };
 
+  wayland.windowManager.hyprland = {
+    enable = true;
+  };
 }
