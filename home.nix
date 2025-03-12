@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./modules ];  # This imports all modules through default.nix
+  imports = [ ./modules/hyprland.nix ];  # This imports all modules through default.nix
 
   home = {
     username = "joshuam";
@@ -46,6 +46,13 @@
     # System tray applications
     blueman
     networkmanagerapplet
+    
+    # Wayland specific
+    waybar
+    rofi-wayland
+    wl-clipboard
+    grim
+    slurp
   ];
 
   home.sessionVariables = {
@@ -56,6 +63,13 @@
     XDG_CACHE_HOME = "${config.home.homeDirectory}/.cache";
     XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";
     GOPATH = "${config.home.homeDirectory}/go";
+    
+    # Wayland specific
+    NIXOS_OZONE_WL = "1";  # For Electron apps
+    WLR_NO_HARDWARE_CURSORS = "1";  # If you have cursor issues
+    XDG_SESSION_TYPE = "wayland";
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SESSION_DESKTOP = "Hyprland";
   };
 
   # Basic program enables - detailed configs are in modules/

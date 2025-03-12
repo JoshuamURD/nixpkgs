@@ -1,12 +1,11 @@
+{ config, lib, pkgs, ... }:
+
 {
   imports = [
-    ./polybar.nix
-    ./fish.nix
-    ./i3.nix
-    ./ghostty.nix
-    ./picom.nix
-    ./nitrogen.nix
+    ./hyprland.nix
     ./git.nix
+    ./fish.nix
+    ./ghostty.nix
     # Add other modules as you create them:
     # ./terminal.nix
     # ./nvim.nix

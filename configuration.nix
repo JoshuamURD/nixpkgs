@@ -22,8 +22,7 @@
   # Display server and window manager
   services.xserver = {
     enable = true;
-    displayManager.lightdm.enable = true;
-    windowManager.i3.enable = true;
+    displayManager.gdm.enable = true;
   };
 
   # Locale and time
@@ -81,24 +80,34 @@
   # System-wide packages
   environment.systemPackages = with pkgs; [
     # System utilities
-    powertop
-    brightnessctl
-    vim
-    
-    # Window manager components
-    i3
-    i3status
-    i3lock
-    dmenu
-    polybarFull
-    picom
-    dunst
-    nitrogen
-    
-    # System fonts
-    font-awesome
-  ];
+    powertop                  # Power consumption monitoring and optimization
+    brightnessctl             # Brightness control utility
+    vim                       # Text editor (fallback editor)
+    kitty                     # GPU-accelerated terminal emulator
+    alacritty                 # Alternative GPU-accelerated terminal emulator
+    waybar                    # Status bar for Wayland compositors
+    rofi-wayland              # Application launcher and window switcher for Wayland
+    dunst                     # Lightweight notification daemon
+    grim                      # Screenshot utility for Wayland
+    slurp                     # Region selector for screenshots on Wayland
+    wl-clipboard              # Clipboard utilities for Wayland
+    htop                      # Interactive process viewer
+    git                       # Version control system
+    curl                      # Command-line tool for transferring data
+    wget                      # Utility for retrieving files from the web
+    unzip                     # Utility for extracting zip archives
+    p7zip                     # Utility for handling 7z archives
+    usbutils                  # USB device utilities (lsusb)
+    pciutils                  # PCI device utilities (lspci)
+    file                      # Utility to determine file types
+    ntfs3g                    # NTFS filesystem support
+    exfatprogs                # exFAT filesystem utilities
+    networkmanager            # Network management daemon
+    openssh                   # SSH client and server utilities
 
+    # System fonts
+    font-awesome              # Iconic font set for UI elements
+  ];
   # Font configuration
   fonts = {
     packages = with pkgs; [
@@ -112,4 +121,11 @@
 
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "24.11";
+
+  # Add Hyprland
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+
+  };
 }
