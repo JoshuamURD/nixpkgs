@@ -8,5 +8,6 @@
     ./ghostty.nix
     ./waybar.nix
     ./wallpaper.nix
+    ./dunst.nix
   ];
 } 

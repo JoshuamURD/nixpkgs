@@ -13,7 +13,6 @@
       # Start wallpaper
       exec-once = hyprpaper
       # Fallback wallpaper setting with swaybg
-      exec-once = swaybg -i ${config.home.homeDirectory}/.config/wallpapers/default.png
 
       # Basic environment variables
       env = XCURSOR_SIZE,32
@@ -22,6 +21,9 @@
 
       exec-once = hyprctl setcursor Bibata-Modern-Classic 32
       exec-once = waybar &
+      exec-once = dunst &
+      exec-once = ${config.home.homeDirectory}/.config/hypr/scripts/battery-monitor.sh &
+
       # Input configuration
       input {
         kb_layout = us
@@ -37,22 +39,72 @@
 
       # Decoration configuration
       decoration {
-        rounding = 5
+        rounding = 8
+        
+        # Active/Inactive opacity
+        active_opacity = 1.0
+        inactive_opacity = 0.95
+        
+        # Dim
+        dim_inactive = true
+        dim_strength = 0.2
+        
+        # Blur
+        blur {
+          enabled = true
+          size = 6
+          passes = 2
+          ignore_opacity = true
+          new_optimizations = true
+          xray = false
+          noise = 0.0117
+          contrast = 0.8916
+          brightness = 0.8172
+          vibrancy = 0.1696
+          vibrancy_darkness = 0.0
+          special = false
+        }
       }
 
       # Animation configuration
       animations {
-        enabled = false
+        enabled = true
+        
+        # Premium feeling curves
+        bezier = wind, 0.05, 0.9, 0.1, 1.05
+        bezier = winIn, 0.1, 1.1, 0.1, 1.1
+        bezier = winOut, 0.3, -0.3, 0, 1
+        bezier = liner, 1, 1, 1, 1
+        
+        # Snappy window animations
+        animation = windows, 1, 6, wind
+        animation = windowsIn, 1, 6, winIn, popin 60%
+        animation = windowsOut, 1, 5, winOut, popin 80%
+        animation = windowsMove, 1, 5, wind, slide
+        
+        # Smooth fading
+        animation = fade, 1, 4, default
+        animation = border, 1, 1, liner
+        animation = borderangle, 1, 30, liner, loop
+        
+        # Crisp workspace transitions
+        animation = workspaces, 1, 5, wind, slidefade 20%
+        animation = specialWorkspace, 1, 5, wind, slidevert
       }
 
       # Window rules
-      windowrule = float, ^(pavucontrol|blueman-manager|nm-connection-editor)$
-      windowrule = center, ^(pavucontrol|blueman-manager|nm-connection-editor)$
+      windowrule = float, ^(pavucontrol)$
+      windowrule = float, ^(nm-connection-editor)$
+      windowrule = float, ^(blueman-manager)$
+      windowrulev2 = rounding 12, class:^(ghostty)$
+      windowrule = opacity, 0.9, class:^(Cursor)$
 
       # Key bindings
       $mod = SUPER
 
-      bind = $mod, RETURN, exec, ghostty
+      bind = $mod, T, exec, ghostty
+      bind = $mod, F, exec, firefox
+      bind = $mod, C, exec, cursor
       bind = $mod, D, exec, rofi -show drun
       bind = $mod, Q, killactive
       bind = $mod, V, togglefloating
@@ -80,5 +132,10 @@
       bind = , XF86MonBrightnessUp, exec, brightnessctl set +10%
       bind = , XF86MonBrightnessDown, exec, brightnessctl set 10%-
     '';
+  };
+
+  home.file.".config/hypr/scripts/battery-monitor.sh" = {
+    source = ./scripts/battery-monitor.sh;
+    executable = true;
   };
 } 

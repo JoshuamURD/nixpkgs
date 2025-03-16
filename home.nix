@@ -56,6 +56,8 @@
     # Add these if not present
     hyprland
     xdg-desktop-portal-hyprland
+    dunst
+    libnotify
   ];
 
   home.sessionVariables = {
