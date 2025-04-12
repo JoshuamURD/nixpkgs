@@ -6,6 +6,7 @@
 
 {
   imports = [ ];  # We can leave this empty since hardware-configuration.nix is handled in the flake
+  virtualisation.docker.enable = true;
 
   # System-level configuration
   boot.loader.systemd-boot.enable = true;
@@ -73,7 +74,7 @@
   users.users.joshuam = {
     isNormalUser = true;
     description = "Joshua Macmaster";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.fish;
   };
 
@@ -104,6 +105,7 @@
     exfatprogs                # exFAT filesystem utilities
     networkmanager            # Network management daemon
     openssh                   # SSH client and server utilities
+    docker-compose
 
     # System fonts
     font-awesome              # Iconic font set for UI elements

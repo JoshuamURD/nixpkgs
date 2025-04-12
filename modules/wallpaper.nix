@@ -11,8 +11,8 @@ in
   # Create hyprpaper config
   xdg.configFile."hypr/hyprpaper.conf".text = ''
     ipc = on
-    preload = ${wallpaperDir}/skeletons.png
-  wallpaper = ,${wallpaperDir}/skeletons.png
+    preload = ${wallpaperDir}/solar-system.png
+    wallpaper = ,${wallpaperDir}/solar-system.png
     splash = false
   '';
 } 

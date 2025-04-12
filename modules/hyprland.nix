@@ -8,7 +8,9 @@
 
     extraConfig = ''
       # Monitor configuration
-      monitor = eDP-1,2048x1280@120,0x0,1
+      monitor = eDP-1,2048x1280@120,1920x0,1
+      monitor = HDMI-A-1,1920x1080@60,0x0,1
+      monitor = DP-2,1920x1080@60,3968x0,1,transform,1
 
       # Start wallpaper
       exec-once = hyprpaper
@@ -32,8 +34,8 @@
 
       # General configuration
       general {
-        gaps_in = 5
-        gaps_out = 10
+        gaps_in = 10
+        gaps_out = 20
         layout = dwindle
       }
 
@@ -97,7 +99,7 @@
       windowrule = float, ^(nm-connection-editor)$
       windowrule = float, ^(blueman-manager)$
       windowrulev2 = rounding 12, class:^(ghostty)$
-      windowrule = opacity, 0.9, class:^(Cursor)$
+      windowrulev2 = opacity 0.9 0.9, class:^(Cursor)$
 
       # Key bindings
       $mod = SUPER

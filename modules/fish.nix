@@ -71,7 +71,10 @@
       # Set environment variables
       set -gx EDITOR nvim
       set -gx VISUAL nvim
-      
+
+      set -Ux ANDROID_HOME $HOME/Android/Sdk
+      set -Ux PATH $ANDROID_HOME/emulator $ANDROID_HOME/tools $ANDROID_HOME/tools/bin $ANDROID_HOME/platform-tools $PATH
+
       # Set GOPATH and add Go-related paths
       set -gx GOPATH $HOME/go
       set -gx PATH $GOPATH/bin $PATH   # Changed order to prioritize Go binaries

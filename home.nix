@@ -27,6 +27,9 @@
     gh
     code-cursor
     neovim
+    wrangler
+    android-studio
+
     
     # CLI tools
     zoxide
@@ -35,6 +38,7 @@
     killall
     
     # GUI Applications
+    google-chrome
     firefox
     rofi-wayland
     
@@ -58,6 +62,21 @@
     xdg-desktop-portal-hyprland
     dunst
     libnotify
+
+    # Android development dependencies
+    android-tools
+    qemu
+    libpulseaudio
+    libGL
+    glibc
+    icu
+    libcxx
+    ncurses5
+    zlib
+    
+    # If using Wayland, these might help with compatibility
+    qt6.qtwayland
+    qt6.full
   ];
 
   home.sessionVariables = {
@@ -75,6 +94,16 @@
     XDG_SESSION_TYPE = "wayland";
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_DESKTOP = "Hyprland";
+
+    # Android SDK related
+    ANDROID_HOME = "${config.home.homeDirectory}/Android/Sdk";
+    PATH = [
+      "${config.home.homeDirectory}/Android/Sdk/platform-tools"
+      "${config.home.homeDirectory}/Android/Sdk/tools"
+    ];
+    
+    # Additional Wayland/Graphics variables
+    LIBGL_ALWAYS_SOFTWARE = "1";  # Try this if emulator has graphics issues
   };
 
   # Basic program enables - detailed configs are in modules/
