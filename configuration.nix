@@ -113,7 +113,7 @@
   # Font configuration
   fonts = {
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "Iosevka" ]; })
+      nerd-fonts.iosevka
       font-awesome
       material-design-icons
       material-icons

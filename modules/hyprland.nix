@@ -95,9 +95,6 @@
       }
 
       # Window rules
-      windowrule = float, ^(pavucontrol)$
-      windowrule = float, ^(nm-connection-editor)$
-      windowrule = float, ^(blueman-manager)$
       windowrulev2 = rounding 12, class:^(ghostty)$
       windowrulev2 = opacity 0.9 0.9, class:^(Cursor)$
 

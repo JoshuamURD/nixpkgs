@@ -15,7 +15,7 @@
   home.packages = with pkgs; [
     # Fonts
     iosevka
-    (nerdfonts.override { fonts = [ "Iosevka" "FiraCode" "JetBrainsMono" ]; })
+    nerd-fonts.iosevka
     
     # Development
     nodejs
@@ -27,7 +27,6 @@
     gh
     code-cursor
     neovim
-    wrangler
     android-studio
 
     
@@ -97,11 +96,6 @@
 
     # Android SDK related
     ANDROID_HOME = "${config.home.homeDirectory}/Android/Sdk";
-    PATH = [
-      "${config.home.homeDirectory}/Android/Sdk/platform-tools"
-      "${config.home.homeDirectory}/Android/Sdk/tools"
-    ];
-    
     # Additional Wayland/Graphics variables
     LIBGL_ALWAYS_SOFTWARE = "1";  # Try this if emulator has graphics issues
   };
