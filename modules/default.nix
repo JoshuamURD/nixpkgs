@@ -9,5 +9,6 @@
     ./waybar.nix
     ./wallpaper.nix
     ./dunst.nix
+    ./helix.nix
   ];
 } 

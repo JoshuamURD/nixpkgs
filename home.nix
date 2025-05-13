@@ -16,19 +16,45 @@
     # Fonts
     iosevka
     nerd-fonts.iosevka
+    nerd-fonts.fira-code
     
     # Development
     nodejs
     bun
     rustc
-    cargo
+    rustup
     gcc
     go
     gh
     code-cursor
     neovim
     android-studio
-
+    exercism
+    (python3.withPackages (ps: with ps; [
+      jupyter
+      notebook
+      ipykernel
+      numpy
+      pandas
+      matplotlib
+      pip
+      virtualenv
+    ]))
+    
+    # PHP Development
+    php82
+    php82Packages.composer
+    mysql80
+    apacheHttpd
+    adminer  # Lightweight database management tool (alternative to phpMyAdmin)
+    
+    # Laravel Development
+    sqlite  # Often used for testing in Laravel
+    redis  # Used for caching and queue in Laravel
+    php82Extensions.redis  # PHP Redis extension
+    php82Extensions.sqlite3  # PHP SQLite extension
+    php82Extensions.pdo_sqlite  # PHP PDO SQLite extension
+    php82Extensions.pdo_mysql  # PHP PDO MySQL extension
     
     # CLI tools
     zoxide
@@ -62,16 +88,11 @@
     dunst
     libnotify
 
-    # Android development dependencies
-    android-tools
-    qemu
-    libpulseaudio
-    libGL
-    glibc
-    icu
-    libcxx
-    ncurses5
-    zlib
+    # Android development
+    android-tools  # This provides adb, fastboot, etc.
+    android-studio
+    jdk17
+    gradle
     
     # If using Wayland, these might help with compatibility
     qt6.qtwayland
@@ -96,9 +117,19 @@
 
     # Android SDK related
     ANDROID_HOME = "${config.home.homeDirectory}/Android/Sdk";
+    ANDROID_SDK_ROOT = "${config.home.homeDirectory}/Android/Sdk";
+    ANDROID_AVD_HOME = "${config.home.homeDirectory}/.android/avd";
+    
     # Additional Wayland/Graphics variables
     LIBGL_ALWAYS_SOFTWARE = "1";  # Try this if emulator has graphics issues
   };
+
+  home.sessionPath = [
+    "$ANDROID_HOME/platform-tools"
+    "$ANDROID_HOME/tools"
+    "$ANDROID_HOME/tools/bin"
+    "$HOME/.npm-global/bin"
+  ];
 
   # Basic program enables - detailed configs are in modules/
   programs = {

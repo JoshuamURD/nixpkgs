@@ -114,6 +114,7 @@
   fonts = {
     packages = with pkgs; [
       nerd-fonts.iosevka
+      nerd-fonts.fira-code
       font-awesome
       material-design-icons
       material-icons

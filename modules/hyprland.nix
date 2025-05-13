@@ -9,7 +9,7 @@
     extraConfig = ''
       # Monitor configuration
       monitor = eDP-1,2048x1280@120,1920x0,1
-      monitor = HDMI-A-1,1920x1080@60,0x0,1
+      monitor = HDMI-A-1,preferred,3968x0,1
       monitor = DP-2,1920x1080@60,3968x0,1,transform,1
 
       # Start wallpaper

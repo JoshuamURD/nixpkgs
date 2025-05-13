@@ -78,6 +78,7 @@
       # Set GOPATH and add Go-related paths
       set -gx GOPATH $HOME/go
       set -gx PATH $GOPATH/bin $PATH   # Changed order to prioritize Go binaries
+      set -gx PATH ~/.cargo/bin $PATH
 
       # Vi mode
       fish_vi_key_bindings
