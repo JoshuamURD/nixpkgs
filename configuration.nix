@@ -84,8 +84,6 @@
     powertop                  # Power consumption monitoring and optimization
     brightnessctl             # Brightness control utility
     vim                       # Text editor (fallback editor)
-    kitty                     # GPU-accelerated terminal emulator
-    alacritty                 # Alternative GPU-accelerated terminal emulator
     waybar                    # Status bar for Wayland compositors
     rofi-wayland              # Application launcher and window switcher for Wayland
     dunst                     # Lightweight notification daemon

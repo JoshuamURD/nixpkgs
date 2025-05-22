@@ -12,14 +12,19 @@
       monitor = HDMI-A-1,preferred,3968x0,1
       monitor = DP-2,1920x1080@60,3968x0,1,transform,1
 
-      # Start wallpaper
-      exec-once = hyprpaper
-      # Fallback wallpaper setting with swaybg
+      # Lid switch behavior
+      bindl = , switch:Lid Switch, exec, hyprctl keyword monitor "eDP-1, disable"
+      bindl = , switch:off:Lid Switch, exec, hyprctl keyword monitor "eDP-1,2048x1280@120,1920x0,1"
 
-      # Basic environment variables
+      # AMD GPU optimizations
+      env = WLR_DRM_NO_ATOMIC,1
+      env = WLR_RENDERER_ALLOW_SOFTWARE,1
       env = XCURSOR_SIZE,32
       env = QT_QPA_PLATFORM,wayland
       env = CLUTTER_BACKEND,wayland
+
+      # Start wallpaper
+      exec-once = hyprpaper
 
       exec-once = hyprctl setcursor Bibata-Modern-Classic 32
       exec-once = waybar &
@@ -30,13 +35,20 @@
       input {
         kb_layout = us
         follow_mouse = 1
+        touchpad {
+          natural_scroll = true
+          disable_while_typing = true
+          scroll_factor = 0.5
+        }
       }
 
       # General configuration
       general {
-        gaps_in = 10
-        gaps_out = 20
+        gaps_in = 5
+        gaps_out = 10
         layout = dwindle
+        border_size = 2
+        allow_tearing = false
       }
 
       # Decoration configuration
@@ -49,49 +61,50 @@
         
         # Dim
         dim_inactive = true
-        dim_strength = 0.2
+        dim_strength = 0.1
         
-        # Blur
+        # Blur - reduced for better performance
         blur {
           enabled = true
-          size = 6
-          passes = 2
+          size = 3
+          passes = 1
           ignore_opacity = true
           new_optimizations = true
           xray = false
-          noise = 0.0117
-          contrast = 0.8916
-          brightness = 0.8172
-          vibrancy = 0.1696
+          noise = 0.0
+          contrast = 0.9
+          brightness = 0.9
+          vibrancy = 0.0
           vibrancy_darkness = 0.0
           special = false
         }
       }
 
-      # Animation configuration
+      # Animation configuration - optimized for performance
       animations {
         enabled = true
         
-        # Premium feeling curves
-        bezier = wind, 0.05, 0.9, 0.1, 1.05
-        bezier = winIn, 0.1, 1.1, 0.1, 1.1
-        bezier = winOut, 0.3, -0.3, 0, 1
-        bezier = liner, 1, 1, 1, 1
+        # Simplified bezier curves
+        bezier = wind, 0.1, 0.9, 0.1, 1.0
         
-        # Snappy window animations
-        animation = windows, 1, 6, wind
-        animation = windowsIn, 1, 6, winIn, popin 60%
-        animation = windowsOut, 1, 5, winOut, popin 80%
-        animation = windowsMove, 1, 5, wind, slide
-        
-        # Smooth fading
-        animation = fade, 1, 4, default
-        animation = border, 1, 1, liner
-        animation = borderangle, 1, 30, liner, loop
-        
-        # Crisp workspace transitions
-        animation = workspaces, 1, 5, wind, slidefade 20%
-        animation = specialWorkspace, 1, 5, wind, slidevert
+        # Reduced animation complexity
+        animation = windows, 1, 4, wind
+        animation = windowsIn, 1, 4, wind
+        animation = windowsOut, 1, 4, wind
+        animation = windowsMove, 1, 4, wind
+        animation = fade, 1, 3, default
+        animation = workspaces, 1, 4, wind
+      }
+
+      # Performance optimizations
+      misc {
+        vfr = true
+        vrr = 1
+        focus_on_activate = true
+        animate_manual_resizes = false
+        animate_mouse_windowdragging = false
+        enable_swallow = false
+        force_default_wallpaper = 0
       }
 
       # Window rules
